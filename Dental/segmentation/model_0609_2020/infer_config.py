@@ -13,7 +13,7 @@ __C.general = {}
 # 1) coarse: only run the coarse segmentation model
 # 2) fine: only run the fine segmentation model
 # 3) DISABLE: run the coarse model first and then run the fine model
-__C.general.single_scale = 'coarse'
+__C.general.single_scale = 'DISABLE'
 
 ##################################
 # Coarse model parameters
@@ -92,13 +92,13 @@ __C.fine.partition_type = 'SIZE'
 
 # if partition type = 'SIZE', set the partition size (unit: mm).
 # it is recommended to set this value as the same with the physical cropping size in the training phase
-__C.fine.partition_size = [89.6, 89.6, 89.6]
+__C.fine.partition_size = [128, 128, 128]
 
 # the moving stride of the partition window. If set it as the same with the partition size, there will be no overlap
 # between the partition windows. Otherwise, the value of the overlapped area will be averaged.
 # it is recommended to set this value as 1/4 of the partition size in order to avoid the apparent in-consistence between
 # different partition window.
-__C.fine.partition_stride = [89.6, 89.6, 89.6]
+__C.fine.partition_stride = [128, 128, 128]
 
 # ignore this parameter if you are using gpu for inference.
 # otherwise, set it larger than 1.0 so as to decrease the model resolution.
